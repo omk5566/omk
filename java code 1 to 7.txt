@@ -1,0 +1,206 @@
+1] fibonacci series using recursive and non recursive funtion
+
+ public class FibonacciSeriesRecursive {
+    public static void main(String[] args) {
+        int n = 10;
+        System.out.print("Fibonacci Series of "+n+" terms:");
+
+        for (int i = 0; i < n; i++) {
+            System.out.print(fibonacci(i) + " ");
+        }
+    }
+
+    public static int fibonacci(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        return fibonacci(n-1) + fibonacci(n-2);
+    }
+}
+
+
+2] multiply two given matrices
+
+public class MultiplyMatrices {
+
+    public static void main(String[] args) {
+        int r1 = 2, c1 = 3;
+        int r2 = 3, c2 = 2;
+        int[][] firstMatrix = { {3, -2, 5}, {3, 0, 4} };
+        int[][] secondMatrix = { {2, 3}, {-9, 0}, {0, 4} };
+
+        // Mutliplying Two matrices
+        int[][] product = new int[r1][c2];
+        for(int i = 0; i < r1; i++) {
+            for (int j = 0; j < c2; j++) {
+                for (int k = 0; k < c1; k++) {
+                    product[i][j] += firstMatrix[i][k] * secondMatrix[k][j];
+                }
+            }
+        }
+
+        // Displaying the result
+        System.out.println("Multiplication of two matrices is: ");
+        for(int[] row : product) {
+            for (int column : row) {
+                System.out.print(column + "    ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+3] method overloading and constructor overloading
+
+method ovrloading :-
+public class Sum { 
+  public int sum(int x, int y) { return (x + y); } 
+
+    public int sum(int x, int y, int z) 
+
+    { 
+        return (x + y + z); 
+    }
+
+    public double sum(double x, double y) 
+    { 
+       return (x + y); 
+    } 
+    public static void main(String args[]) 
+
+    { 
+        Sum s = new Sum(); 
+
+        System.out.println(s.sum(10, 20)); 
+
+        System.out.println(s.sum(10, 20, 30)); 
+
+        System.out.println(s.sum(10.5, 20.5)); 
+    } 
+}
+
+contructor ovrloading 
+
+public class Student {  
+//instance variables of the class  
+int id;  
+String name;  
+  
+Student(){  
+System.out.println("this a default constructor");  
+}  
+  
+Student(int i, String n){  
+id = i;  
+name = n;  
+}  
+  
+public static void main(String[] args) {  
+//object creation  
+Student s = new Student();  
+System.out.println("\nDefault Constructor values: \n");  
+System.out.println("Student Id : "+s.id + "\nStudent Name : "+s.name);  
+  
+System.out.println("\nParameterized Constructor values: \n");  
+Student student = new Student(10, "David");  
+System.out.println("Student Id : "+student.id + "\nStudent Name : "+student.name);  
+}  
+}
+
+4] display the employee details using scanner class
+
+import java.util.Scanner; 
+ 
+public class Employee
+{
+    public static void main(String args[])
+    {
+        int id;
+        String name;
+        float salary;
+        Scanner s=new Scanner(System.in);
+ 
+        System.out.println("Enter Employee  name:");
+        name = s.nextLine(); 
+ 
+        System.out.println("Enter Employee Id:");
+        id = s.nextInt(); 
+ 
+        System.out.println("Enter Employee Salary:");
+        salary = s.nextFloat();
+ 
+        System.out.println("Employee  details:");
+        System.out.println("Employee  name is: " +name);
+        System.out.println("Employee  id is: " +id);
+        System.out.println("Employee  salary is: " +salary);
+        s.close();
+    }
+}
+
+5]Write a java program that checks whether a given string is palindrome or not
+
+import java.util.Scanner;
+ 
+class ChkPalindrome
+{
+   public static void main(String args[])
+   {
+      String str, rev = "";
+      Scanner sc = new Scanner(System.in);
+ 
+      System.out.println("Enter a string:");
+      str = sc.nextLine();
+ 
+      int length = str.length();
+ 
+      for ( int i = length - 1; i >= 0; i-- )
+         rev = rev + str.charAt(i);
+ 
+      if (str.equals(rev))
+         System.out.println(str+" is a palindrome");
+      else
+         System.out.println(str+" is not a palindrome");
+ 
+   }
+}
+
+7]  A) Write a java program to create inner classes
+    
+	class OuterClass {
+  int x = 10;
+
+  class InnerClass {
+    int y = 5;
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    OuterClass myOuter = new OuterClass();
+    OuterClass.InnerClass myInner = myOuter.new InnerClass();
+    System.out.println(myInner.y + myOuter.x);
+  }
+}
+
+   B) Write a java program to create user defined package
+
+   // Java program to create a user-defined
+// package and function to print
+// a message for the users
+package example;
+
+// Class
+public class gfg {
+
+	public void show()
+	{
+		System.out.println("Hello geeks!! How are you?");
+	}
+
+	public static void main(String args[])
+	{
+		gfg obj = new gfg();
+		obj.show();
+	}
+}
