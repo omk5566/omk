@@ -1,0 +1,440 @@
+1.Write a java program to find the Fibonacci series using recursive and non-recursive functions
+
+//Using  While Loop
+public class FibonacciWhileExample {
+	public static void main(String[] args) 
+	{
+		 int maxNumber = 10, previousNumber = 0, nextNumber = 1;
+	        System.out.print("Fibonacci Series of "+maxNumber+" numbers:");
+ 
+	        int i=1;
+	        while(i <= maxNumber)
+	        {
+	            System.out.print(previousNumber+" ");
+	            int sum = previousNumber + nextNumber;
+	            previousNumber = nextNumber;
+	            nextNumber = sum;
+	            i++;
+	        }
+ 
+	}
+ }
+
+//Using Recursion
+public class FibonacciCalc{
+	public static int fibonacciRecursion(int n){
+	if(n == 0){
+		return 0;
+	}
+	if(n == 1 || n == 2){
+			return 1;
+             }
+	return fibonacciRecursion(n-2) + fibonacciRecursion(n-1);
+	}
+    public static void main(String args[]) {
+	int maxNumber = 10;
+	System.out.print("Fibonacci Series of "+maxNumber+" numbers: ");
+	for(int i = 0; i < maxNumber; i++){
+			System.out.print(fibonacciRecursion(i) +" ");
+		}
+	}
+}
+
+2. Write a java program to multiply two given matrices
+
+public class MatrixMultiplicationExample{  
+public static void main(String args[]){  
+//creating two matrices    
+int a[][]={{1,1,1},{2,2,2},{3,3,3}};    
+int b[][]={{1,1,1},{2,2,2},{3,3,3}};    
+    
+//creating another matrix to store the multiplication of two matrices    
+int c[][]=new int[3][3];  //3 rows and 3 columns  
+    
+//multiplying and printing multiplication of 2 matrices    
+for(int i=0;i<3;i++){    
+for(int j=0;j<3;j++){    
+c[i][j]=0;      
+for(int k=0;k<3;k++)      
+{      
+c[i][j]+=a[i][k]*b[k][j];      
+}//end of k loop  
+System.out.print(c[i][j]+" ");  //printing matrix element  
+}//end of j loop  
+System.out.println();//new line    
+}    
+}}  
+
+3. Write a java program for Method overloading and Constructor overloading
+
+public class Student {  
+//instance variables of the class  
+int id;  
+String name;  
+  
+Student(){  
+System.out.println("this a default constructor");  
+}  
+  
+Student(int i, String n){  
+id = i;  
+name = n;  
+}  
+  
+public static void main(String[] args) {  
+//object creation  
+Student s = new Student();  
+System.out.println("\nDefault Constructor values: \n");  
+System.out.println("Student Id : "+s.id + "\nStudent Name : "+s.name);  
+  
+System.out.println("\nParameterized Constructor values: \n");  
+Student student = new Student(10, "David");  
+System.out.println("Student Id : "+student.id + "\nStudent Name : "+student.name);  
+}  
+}
+
+4.Write a java program to display the employee details using Scanner class
+
+import java.util.Scanner;
+class Employee 
+{
+    int id;
+    String name;
+    String desig; 
+    float salary;
+}
+class Main{
+            public static void main(String args[]) 
+   {
+            Scanner sc = new Scanner(System.in);
+            System.out.print("How many employees? ");
+            int n = sc.nextInt();
+            Employee emp[] = new Employee[n];
+            for (int i = 0; i < n; i++) {
+            emp[i] = new Employee();
+            System.out.println("Enter " + (i + 1) + " Employee data :");
+            System.out.print("Enter employee id :");
+            emp[i].id = sc.nextInt();
+            System.out.print("Enter employee name :");
+            emp[i].name = sc.next();
+            System.out.print("Enter employee designation :");
+            emp[i].desig = sc.next();
+            System.out.print("Enter employee salary :");
+            emp[i].salary = sc.nextFloat();
+}
+ System.out.println("\n\n**** All Employee Details are :****\n");
+ for (int i = 0; i < n; i++) {
+        System.out.println("Employee id, Name, Designation and Salary :"
+ + emp[0].id + " " + emp[i].name + " " + emp[i].desig + " " +emp[i].salary);
+  }
+ }
+}
+
+5. Write a java program that checks whether a given string is palindrome or not
+import java.util.Scanner;
+ 
+class palindrome {
+    public static void main(String[] args) {
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Enter a string as an input to check whether it is palindrome or not");
+        String input= scanner.nextLine();
+        //checking whether palindrome or not
+        if(isPalindrome(input))
+        {
+            System.out.println(input+" is a palindrome string");
+        }
+        else
+        {
+            System.out.println(input+" is not a palindrome string");
+        }
+    }
+ 
+    public static boolean isPalindrome(String str) {
+        int left = 0, right = str.length() - 1;
+        
+        while(left < right)
+        {
+            if(str.charAt(left) != str.charAt(right))
+            {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    } 
+}
+
+6.Write a java program to represent Abstract class with example. Write a java program to implement
+Interface using extends keyword.
+
+abstract class Bike{  
+  abstract void run();  
+}  
+class Honda4 extends Bike{  
+void run(){System.out.println("running safely");}  
+public static void main(String args[]){  
+ Bike obj = new Honda4();  
+ obj.run();  
+}  
+
+
+java program to implement Interface using extends keyword.
+
+
+
+interface A {
+   void funcA();
+}
+interface B extends A {
+   void funcB();
+}
+class C implements B {
+   public void funcA() {
+      System.out.println("This is funcA");
+   }
+   public void funcB() {
+      System.out.println("This is funcB");
+   }
+}
+public class Demo {
+   public static void main(String args[]) {
+      C obj = new C();
+      obj.funcA();
+      obj.funcB();
+   }
+}
+
+
+7. Write a java program to create inner classes. Write a java program to create user defined package
+
+Example1
+// Outer class
+class Outer {
+    // Member variables and methods of the outer class
+
+    // Inner class
+    class Inner {
+        // Member variables and methods of the inner class
+    }
+}
+
+// Main class to demonstrate the usage
+public class Main {
+    public static void main(String[] args) {
+        // Creating an instance of the outer class
+        Outer outerObj = new Outer();
+
+        // Creating an instance of the inner class using the outer class instance
+        Outer.Inner innerObj = outerObj.new Inner();
+    }
+}
+
+Example2
+
+// File: /path/to/project/src/com/example/mypackage/MyClass.java
+package com.example.mypackage;
+
+public class MyClass {
+    public void displayMessage() {
+        System.out.println("Hello from my package!");
+    }
+}
+
+8. Write a java program for creating multiple catch blocks.
+public class MultipleCatchBlock1 {  
+  
+    public static void main(String[] args) {  
+          
+           try{    
+                int a[]=new int[5];    
+                a[5]=30/0;    
+               }    
+               catch(ArithmeticException e)  
+                  {  
+                   System.out.println("Arithmetic Exception occurs");  
+                  }    
+               catch(ArrayIndexOutOfBoundsException e)  
+                  {  
+                   System.out.println("ArrayIndexOutOfBounds Exception occurs");  
+                  }    
+               catch(Exception e)  
+                  {  
+                   System.out.println("Parent Exception occurs");  
+                  }             
+               System.out.println("rest of the code");    
+    }  
+}  
+
+9.Write a Java program that implements a multi-thread application that has three threads.
+class MyThread extends Thread {
+    private String message;
+    private int delay;
+
+    public MyThread(String message, int delay) {
+        this.message = message;
+        this.delay = delay;
+    }
+
+    @Override
+    public void run() {
+        try {
+            for (int i = 0; i < 5; i++) {
+                System.out.println(message);
+                Thread.sleep(delay);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+public class MultiThreadExample {
+    public static void main(String[] args) {
+        // Create three threads with different messages and delays
+        MyThread thread1 = new MyThread("Thread 1: Hello", 500);
+        MyThread thread2 = new MyThread("Thread 2: World", 1000);
+        MyThread thread3 = new MyThread("Thread 3: Welcome", 1500);
+
+        // Start the threads
+        thread1.start();
+        thread2.start();
+        thread3.start();
+    }
+}
+
+10. Write a java program to represent the Array List class. Write a Java program loads phone no, name from a text file using hash table
+
+import java.util.ArrayList;
+
+public class ArrayListExample {
+    public static void main(String[] args) {
+        // Creating an ArrayList to store names
+        ArrayList<String> nameList = new ArrayList<>();
+
+        // Adding names to the ArrayList
+        nameList.add("Alice");
+        nameList.add("Bob");
+        nameList.add("Charlie");
+        nameList.add("David");
+
+        // Displaying the elements of the ArrayList
+        System.out.println("Names in the ArrayList:");
+        for (String name : nameList) {
+            System.out.println(name);
+        }
+    }
+}
+
+Hashtable Example 
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Hashtable;
+
+public class LoadPhoneNumbers {
+    public static void main(String[] args) {
+        // Creating a Hashtable to store phone numbers and names
+        Hashtable<String, String> phoneBook = new Hashtable<>();
+
+        // Reading phone numbers and names from a text file
+        try (BufferedReader br = new BufferedReader(new FileReader("phone_numbers.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                // Assuming each line in the file has the format: name,phone_number
+                String[] parts = line.split(",");
+                if (parts.length == 2) {
+                    String name = parts[0].trim();
+                    String phoneNumber = parts[1].trim();
+                    phoneBook.put(name, phoneNumber);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Displaying the phone numbers and names from the Hashtable
+        System.out.println("Phone Numbers loaded from the file:");
+        for (String name : phoneBook.keySet()) {
+            String phoneNumber = phoneBook.get(name);
+            System.out.println(name + ": " + phoneNumber);
+        }
+    }
+}
+
+11. Write an applet program that displays a simple message
+
+import java.awt.*; 
+import java.applet.*; 
+ 
+public class HelloApplet extends Applet { 
+  public void paint(Graphics g) { 
+    g.drawString("Hello World!", 50, 25); 
+  } 
+}
+
+12. Write a Java program compute factorial value using Applet. Write a program for passing parameters using Applet
+
+import java.applet.Applet;
+import java.awt.Graphics;
+
+// Applet class to compute factorial value
+public class FactorialApplet extends Applet {
+    
+    // Override the paint method to calculate and display factorial
+    @Override
+    public void paint(Graphics g) {
+        // Get the parameter (assuming it's passed as "number")
+        String numberParam = getParameter("number");
+
+        if (numberParam != null) {
+            try {
+                // Convert the parameter to an integer
+                int number = Integer.parseInt(numberParam);
+
+                // Calculate the factorial
+                long factorial = calculateFactorial(number);
+
+                // Display the result on the applet window
+                g.drawString("Factorial of " + number + " is: " + factorial, 20, 20);
+            } catch (NumberFormatException e) {
+                g.drawString("Invalid input. Please provide a valid integer.", 20, 20);
+            }
+        } else {
+            g.drawString("Parameter 'number' not provided.", 20, 20);
+        }
+    }
+
+    // Method to calculate factorial
+    private long calculateFactorial(int n) {
+        if (n == 0 || n == 1) {
+            return 1;
+        } else {
+            return n * calculateFactorial(n - 1);
+        }
+    }
+}
+
+program for passing parameter using Applet
+
+import java.applet.Applet;
+import java.awt.Graphics;
+
+// Applet class to demonstrate passing parameters
+public class ParameterPassingApplet extends Applet {
+    
+    // Override the paint method to display the passed parameter
+    @Override
+    public void paint(Graphics g) {
+        // Get the parameter (assuming it's passed as "message")
+        String message = getParameter("message");
+
+        if (message != null) {
+            // Display the passed parameter on the applet window
+            g.drawString("Message from parameter: " + message, 20, 20);
+        } else {
+            g.drawString("Parameter 'message' not provided.", 20, 20);
+        }
+    }
+}
